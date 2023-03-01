@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Page détail du joueur {{ player.nom|upper }}</h1>
+
+    <div class="card text-center">
+        <div class="card-header">
+            Fiche du joueur {{ player.nom|upper }}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ player.prenom}} {{ player.nom|upper }}</h5>
+            <p class="card-text">
+            Nom : {{ player.nom }}<br>
+            Prenom : {{ player.prenom }}<br>
+            Age : {{ player.age }} ans<br>
+            Poids : {{ player.poids }} kg<br>
+            Taille : {{ player.taille }}m<br>
+            Salaire : {{ player.salaire|number_format(0,',', ' ') }}€<br>
+            Date de naissance : {{ player.bday|date("d/m/Y") }}<br>
+            </p>
+            <a href="index.php" class="btn btn-primary">Retour</a>
+        </div>
+        <div class="card-footer text-muted">
+            2 days ago
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <h1>Liste des joueurs</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Age</th>
+                <th scope="col">Taille</th>
+                <th scope="col">Poids</th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Salaire</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, player in players %}
+            <tr>
+                <th scope="row">{{ key }}</th>
+                <td>{{ player.prenom }} {{ player.nom|upper }}</td>
+                <td>{{ player.age }} ans</td>
+                <td>{{ player.taille }}m</td>
+                <th >{{ player.poids }} kg</th>
+                <td>{{ player.bday|date("d/m/Y") }}</td>
+                <td>{{ player.salaire|number_format(0,',',' ') }}€</td>
+                <td>
+                    <a href="detail.php?id={{ key }}" class="btn btn-primary btn-sm">Afficher</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
